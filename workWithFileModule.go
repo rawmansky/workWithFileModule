@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func getCountLines(fileName string) (int, error) {
+func GetCountLines(fileName string) (int, error) {
 	count := 0
 
 	file, err := os.Open(fileName)
@@ -18,18 +18,16 @@ func getCountLines(fileName string) (int, error) {
 	buf := make([]byte, 32*1024)
 	lineSep := []byte{'\n'}
 
-	for {
-		c, err := file.Read(buf)
-		if err != nil {
-			return count, err
-		}
-
-		count += bytes.Count(buf[:c], lineSep)
-		return count, nil
+	c, err := file.Read(buf)
+	if err != nil {
+		return count, err
 	}
+
+	count += bytes.Count(buf[:c], lineSep)
+	return count, nil
 }
 
-func getCountWords(fileName string) (int, error) {
+func GetCountWords(fileName string) (int, error) {
 	count := 0
 
 	file, err := os.Open(fileName)
