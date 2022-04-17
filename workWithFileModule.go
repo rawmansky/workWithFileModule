@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func getCountLines(fileName string) (int, error) {
+func GetCountLines(fileName string) (int, error) {
 	count := 0
 
 	file, err := os.Open(fileName)
@@ -29,7 +29,7 @@ func getCountLines(fileName string) (int, error) {
 	}
 }
 
-func getCountWords(fileName string) (int, error) {
+func GetCountWords(fileName string) (int, error) {
 	count := 0
 
 	file, err := os.Open(fileName)
